@@ -147,11 +147,11 @@ function setupDonationLevels() {
 }
 
 function splitDonationLevelAmountsIntoParts({
-    symbol = window.Give.fn.getGlobalVar('currency_sign'),
-    symbolPosition = window.Give.fn.getGlobalVar('currency_pos'),
-    //thousandsSeparator = window.Give.fn.getGlobalVar('thousands_separator'),
-    decimalSeparator = window.Give.fn.getGlobalVar('decimal_separator'),
-    //precision = Number.parseInt(window.Give.fn.getGlobalVar('number_decimals')),
+    symbol = Give.form.fn.getInfo( 'currency_symbol', document.querySelector('form') ),
+    symbolPosition = Give.form.fn.getInfo( 'currency_position', document.querySelector('form') ),
+    //thousandsSeparator = Give.form.fn.getInfo( 'thousands_separator', document.querySelector('form') ),
+    decimalSeparator = Give.form.fn.getInfo( 'decimal_separator', document.querySelector('form') ),
+    //precision = Number.parseInt(Give.form.fn.getInfo( 'decimal_separator', document.querySelector('form') )),
 }) {
     document.querySelectorAll('.give-donation-level-btn:not(.give-btn-level-custom)').forEach((node) => {
         const amount = node.getAttribute('value');
